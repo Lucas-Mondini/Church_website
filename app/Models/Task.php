@@ -13,5 +13,5 @@ class Task extends Model
         "TODO",
         "is_finished",
         "date_launch"
-    ]
+    ];
 }
