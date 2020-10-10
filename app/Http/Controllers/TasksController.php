@@ -18,7 +18,11 @@ class TasksController extends Controller
     {
         $tasks = DB::table('tasks')->get();
 
-        return $tasks;
+
+
+        return view('tasks', [
+            'tasks' => $tasks
+        ]);
     }
 
     /**
