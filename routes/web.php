@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TasksController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-use App\Http\Controllers\TasksController;
+
 Route::get('user', [TasksController::class, 'index']);
+Route::post('user', [TasksController::class, 'store']);
