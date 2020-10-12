@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Illuminate\Http\Request;
+use App\Models\Task;
 
 
 
@@ -43,7 +44,22 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            "name" => "required",
+            "TODO" => "required",
+            "is_finished" => "required",
+            "date_launch" => "required"
+        ]);
 
+        $Task = new Task();
+        $Task->name = $request->name;
+        $Task->TODO = $request->TODO;
+        $Task->is_finished = $request->is_finished;
+        $Task->date_launch = $request->date_launch;
+
+        $Task->save();
+
+        echo $Task;
     }
 
     /**
