@@ -3,12 +3,12 @@
     text-align:center;
     width: 275px;
     margin: 25px;
-    min-height:250px;
-    max-height:250px;
-    padding-top:35px;
+    min-height:300px;
+    max-height:300px;
+    padding-top:5px;
     position:relative;
     border:1px solid #E8E8E8;
-    border-top:60px solid #fdfd86;
+    border-top:5px solid #fdfd86;
     font-family:'Reenie Beanie';
     font-size:22px;
     border-bottom-right-radius: 60px 5px;
