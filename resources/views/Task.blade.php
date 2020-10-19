@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/Button.css') }}">
         <title>Tasks</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -24,6 +25,9 @@
                             ?>
                 </p>
                 <p>data: {{$task->date_launch}}</p>
+                <label class="buttons">
+                    <a class="btn-hover color-10" href="/list_tasks">See All Tasks</a>
+                </label>
             </div>
         </div>
     </body>
