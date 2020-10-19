@@ -21,7 +21,7 @@ class TasksController extends Controller
 
 
 
-        return view('tasks', [
+        return view('List_Tasks', [
             'tasks' => $tasks
         ]);
     }
