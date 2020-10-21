@@ -11,6 +11,11 @@
         </style>
     </head>
     <body class="antialiased">
+        <div name="menu" id="menu">
+            <label class="buttons">
+                <a class="btn-hover color-2 menu-btn" href="/register">Register a new task</a>
+            </label>
+        </div>
         <div class="task">
             @foreach ($tasks as $task)
             <div class="task">

@@ -26,7 +26,7 @@
                 </p>
                 <p>data: {{$task->date_launch}}</p>
                 <label class="buttons">
-                    <a class="btn-hover color-10" href="/list_tasks">See All Tasks</a>
+                    <a class="btn-hover color-10" href="/task">See All Tasks</a>
                 </label>
             </div>
         </div>
