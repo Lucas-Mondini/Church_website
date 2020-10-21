@@ -34,6 +34,7 @@ class TasksController extends Controller
     public function create()
     {
         //
+        return view('register_task');
     }
 
     /**
@@ -44,6 +45,8 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+        //$request->is_finished = ($request->is_finished == "on")? true : false;
+
         $this->validate($request, [
             "name" => "required",
             "TODO" => "required",
@@ -59,7 +62,6 @@ class TasksController extends Controller
 
         $Task->save();
 
-        echo $Task;
     }
 
     /**
