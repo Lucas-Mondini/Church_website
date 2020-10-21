@@ -41,3 +41,16 @@
 .task {
     display: inline-block;
 }
+
+#menu{
+    display: block;
+    background-color: cornflowerblue;
+    height: 25px;
+    margin-bottom: 15px;
+}
+
+.menu-btn{
+    position: relative;
+    top: 3px;
+    padding: 5px 8px;
+}
