@@ -17,11 +17,11 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = DB::table('tasks')->get();
+        $tasks = Task::all();
 
 
 
-        return view('List_Tasks', [
+        return view('List_Task', [
             'tasks' => $tasks
         ]);
     }
@@ -45,7 +45,6 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //$request->is_finished = ($request->is_finished == "on")? true : false;
 
         $this->validate($request, [
             "name" => "required",
@@ -62,6 +61,8 @@ class TasksController extends Controller
 
         $Task->save();
 
+        return redirect("/task/$Task->id");
+
     }
 
     /**
@@ -73,8 +74,7 @@ class TasksController extends Controller
     public function show($id)
     {
         //
-        $task = DB::table('tasks')->where('id', $id)->first();
-        //$task = Post::where('id', $id)->first();
+        $task = Task::find($id);
 
         if (! $task)
             abort(404);
@@ -93,6 +93,15 @@ class TasksController extends Controller
     public function edit($id)
     {
         //
+        $task = Task::find($id);
+
+        if (! $task)
+            abort(404);
+
+
+            return view('Edit_task', [
+                'task' => $task
+            ]);
     }
 
     /**
@@ -105,6 +114,26 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $Task = Task::find($id);
+
+        if (! $Task)
+            abort(404);
+
+            $this->validate($request, [
+                "name" => "required",
+                "TODO" => "required",
+                "is_finished" => "required",
+                "date_launch" => "required"
+            ]);
+
+            $Task->name = $request->name;
+            $Task->TODO = $request->TODO;
+            $Task->is_finished = $request->is_finished;
+            $Task->date_launch = $request->date_launch;
+
+            $Task->save();
+
+        return redirect("/task/$Task->id");
     }
 
     /**
