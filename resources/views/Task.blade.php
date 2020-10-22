@@ -3,15 +3,23 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/Button.css') }}">
-        <title>Tasks</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <title>Tasks</title>
 
         <style>
         </style>
     </head>
     <body class="antialiased">
+        <div name="menu" id="menu">
+            <label class="buttons">
+                <a class="btn-hover color-2 menu-btn" href="/task">See all tasks</a>
+                <a class="btn-hover color-2 menu-btn" href="/register">Register a new task</a>
+            </label>
+        </div>
         <div class="task">
             <div class="postit">
                 <p>id: {{$task->id}}</p>
@@ -26,7 +34,7 @@
                 </p>
                 <p>data: {{$task->date_launch}}</p>
                 <label class="buttons">
-                    <a class="btn-hover color-10" href="/task">See All Tasks</a>
+                <a class="btn-hover color-2 menu-btn" href="/task/{{$task->id}}/edit">Edit Task</a>
                 </label>
             </div>
         </div>
