@@ -46,22 +46,14 @@ class TasksController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request, [
+        $task = Task::create($this->validate($request, [
             "name" => "required",
             "TODO" => "required",
             "is_finished" => "required",
             "date_launch" => "required"
-        ]);
+        ]));
 
-        $Task = new Task();
-        $Task->name = $request->name;
-        $Task->TODO = $request->TODO;
-        $Task->is_finished = $request->is_finished;
-        $Task->date_launch = $request->date_launch;
-
-        $Task->save();
-
-        return redirect("/task/$Task->id");
+        return redirect(route("task.show", $task->id));
 
     }
 
@@ -74,10 +66,8 @@ class TasksController extends Controller
     public function show($id)
     {
         //
-        $task = Task::find($id);
+        $task = Task::findorfail($id);
 
-        if (! $task)
-            abort(404);
 
         return view('Task', [
             'task' => $task
@@ -93,10 +83,8 @@ class TasksController extends Controller
     public function edit($id)
     {
         //
-        $task = Task::find($id);
+        $task = Task::findorfail($id);
 
-        if (! $task)
-            abort(404);
 
 
             return view('Edit_task', [
@@ -114,26 +102,15 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $Task = Task::find($id);
+        $task = Task::findorfail($id);
+        $task->update($this->validate($request, [
+            "name" => "required",
+            "TODO" => "required",
+            "is_finished" => "required",
+            "date_launch" => "required"
+        ]));
 
-        if (! $Task)
-            abort(404);
-
-            $this->validate($request, [
-                "name" => "required",
-                "TODO" => "required",
-                "is_finished" => "required",
-                "date_launch" => "required"
-            ]);
-
-            $Task->name = $request->name;
-            $Task->TODO = $request->TODO;
-            $Task->is_finished = $request->is_finished;
-            $Task->date_launch = $request->date_launch;
-
-            $Task->save();
-
-        return redirect("/task/$Task->id");
+        return redirect(route("task.show", $task->id));
     }
 
     /**
@@ -145,5 +122,10 @@ class TasksController extends Controller
     public function destroy($id)
     {
         //
+        $task = Task::findorfail($id);
+
+        $task->delete();
+
+        return redirect(route("task.index"));
     }
 }
