@@ -8,9 +8,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('task', [TasksController::class, 'index']);
-Route::get('register', [TasksController::class, 'create']);
+Route::get('task', [TasksController::class, 'index'])->name("task.index");
+Route::get('register', [TasksController::class, 'create'])->name("task.create");
 Route::post('task', [TasksController::class, 'store']);
-Route::get('task/{id}', [TasksController::class, 'show']);
-Route::get('task/{id}/edit', [TasksController::class, 'edit']);
+Route::get('task/{id}', [TasksController::class, 'show'])->name("task.show");
+Route::get('task/{id}/edit', [TasksController::class, 'edit'])->name("task.edit");
 Route::put('task/{id}', [TasksController::class, 'update']);
+Route::delete('task/{id}', [TasksController::class, 'destroy']);
