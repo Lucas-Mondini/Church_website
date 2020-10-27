@@ -16,11 +16,10 @@
     <body class="antialiased">
         <div name="menu" id="menu">
             <label class="buttons">
-                <a class="btn-hover color-10 menu-btn" href="/task">See All Tasks</a>
+            <a class="btn-hover color-10 menu-btn" href="{{route("task.index")}}">See All Tasks</a>
             </label>
         </div>
-        <div class="task">
-            <div class="postit">
+            <div class="post">
                 <form action="/task" method="post">
                     <div class="field">
                         <label class="label" for="name">Name</label>
@@ -62,6 +61,5 @@
 
                 </form>
             </div>
-        </div>
     </body>
 </html>

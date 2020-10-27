@@ -16,12 +16,11 @@
     <body class="antialiased">
         <div name="menu" id="menu">
             <label class="buttons">
-                <a class="btn-hover color-10 menu-btn" href="/task">See All Tasks</a>
-                <a class="btn-hover color-2 menu-btn" href="/register">Register a new task</a>
+                <a class="btn-hover color-2 menu-btn" href="{{route("task.index")}}">See all tasks</a>
+                <a class="btn-hover color-2 menu-btn" href="{{route("task.create")}}">Register a new task</a>
             </label>
         </div>
-        <div class="task">
-            <div class="postit">
+            <div class="post">
             <form action="/task/{{$task->id}}" method="POST">
                 @method("PUT")
                     <div class="field">
@@ -64,6 +63,5 @@
 
                 </form>
             </div>
-        </div>
     </body>
 </html>
