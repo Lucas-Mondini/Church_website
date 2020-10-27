@@ -15,28 +15,28 @@
     <body class="antialiased">
         <div name="menu" id="menu">
             <label class="buttons">
-                <a class="btn-hover color-2 menu-btn" href="/register">Register a new task</a>
+                <a class="btn-hover color-2 menu-btn" href="{{route("task.create")}}">Register a new task</a>
             </label>
         </div>
         <div class="task">
             @foreach ($tasks as $task)
             <div class="task">
+            <a href="{{ route("task.show", $task->id ) }}">
                 <div class="postit">
-                    <p>id: {{$task->id}}</p>
-                    <p>nome: {{$task->name}}</p>
-                    <p>A fazer: {{$task->TODO}}</p>
-                    <p>terminado: <?php
-                            if ($task->is_finished)
-                                echo "👍";
-                            else
-                                echo "👎";
-                                ?>
-                    </p>
-                    <p>data: {{$task->date_launch}}</p>
-                    <label class="buttons">
-                        <a class="btn-hover color-2" href="/task/{{$task->id}}">Go to task</a>
-                    </label>
+
+                        <p>id: {{$task->id}}</p>
+                        <p>name: {{$task->name}}</p>
+                        <p>To Do: {{$task->TODO}}</p>
+                        <p>Is finished?: <?php
+                                if ($task->is_finished)
+                                    echo "👍";
+                                else
+                                    echo "👎";
+                                    ?>
+                        </p>
+                        <p>Launch Date: {{$task->date_launch}}</p>
                 </div>
+                </a>
             </div>
             @endforeach
         </div>
