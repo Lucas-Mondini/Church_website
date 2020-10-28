@@ -33,7 +33,7 @@
                         <label class="label" for="name">To Do</label>
 
                         <div class="control">
-                            <input class="input" type="text" name="TODO" id="TODO" placeholder="Example: create a landing page">
+                            <textarea class="input" type="text" name="TODO" id="TODO" placeholder="Example: create a landing page"> </textarea>
                         </div>
                     </div>
 

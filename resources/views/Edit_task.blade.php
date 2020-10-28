@@ -35,7 +35,7 @@
                         <label class="label" for="name">To Do</label>
 
                         <div class="control">
-                            <input class="input" type="text" name="TODO" id="TODO" placeholder="Example: create a landing page" value="{{$task->TODO}}">
+                            <textarea class="input" type="text" name="TODO" id="TODO" placeholder="Example: create a landing page" value="{{$task->TODO}}"> </textarea>
                         </div>
                     </div>
 
