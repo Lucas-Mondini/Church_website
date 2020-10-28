@@ -15,3 +15,7 @@ Route::get('task/{id}', [TasksController::class, 'show'])->name("task.show");
 Route::get('task/{id}/edit', [TasksController::class, 'edit'])->name("task.edit");
 Route::put('task/{id}', [TasksController::class, 'update']);
 Route::delete('task/{id}', [TasksController::class, 'destroy']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
